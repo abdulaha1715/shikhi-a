@@ -2,6 +2,6 @@
 @section('title','Shikhi | Dashboard')
 @section('page','Dashboard')
 
-@section('content')
-
+@section('page-content')
+Hi
 @endsection
