@@ -59,7 +59,7 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col text-center">Action</th>
+                                    <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,13 +68,13 @@
                                     <tr>
                                         <td class="fw-medium">{{ $tag->id }}</td>
                                         <td>{{ $tag->name }}</td>
-                                        <td>
-                                            <div class="flex justify-center">
-                                                <a href="{{ route('tag.edit', $tag->id) }}" class="btn-bs-primary mx-1"><i class="ri-edit-box-line align-bottom"></i></a>
-                                                <form action="{{ route('tag.destroy', $tag->id) }}" method="POST" onsubmit="return confirm('Do you want to delete?');">
+                                        <td class="text-center">
+                                            <div class="d-inline">
+                                                <a href="{{ route('tag.edit', $tag->id) }}" class="btn btn-warning btn-icon waves-effect waves-light"><i class="ri-edit-box-line align-bottom"></i></a>
+                                                <form class="d-inline" action="{{ route('tag.destroy', $tag->id) }}" method="POST" onsubmit="return confirm('Do you want to delete?');">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn-bs-danger mx-1"><i class="ri-delete-bin-5-line me-2 align-middle"></i></button>
+                                                    <button type="submit" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line align-middle"></i></button>
                                                 </form>
                                             </div>
                                         </td>
