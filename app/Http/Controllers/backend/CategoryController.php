@@ -17,9 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.category.index')->with([
-            'user' =>Auth::user(),
-        ]);
+        $categories = Category::orderBy('id','DESC')->paginate(5);
+        return view('backend.category.index')->with('categories', $categories);
     }
 
     /**

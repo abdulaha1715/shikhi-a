@@ -58,41 +58,24 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Invoice</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="fw-medium">01</td>
-                                    <td>Bobby Davis</td>
-                                    <td>Nov 14, 2021</td>
-                                    <td>$2,410</td>
-                                    <td><span class="badge bg-success">Confirmed</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-medium">02</td>
-                                    <td>Christopher Neal</td>
-                                    <td>Nov 21, 2021</td>
-                                    <td>$1,450</td>
-                                    <td><span class="badge bg-warning">Waiting</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-medium">03</td>
-                                    <td>Monkey Karry</td>
-                                    <td>Nov 24, 2021</td>
-                                    <td>$3,500</td>
-                                    <td><span class="badge bg-success">Confirmed</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-medium">04</td>
-                                    <td>Aaron James</td>
-                                    <td>Nov 25, 2021</td>
-                                    <td>$6,875</td>
-                                    <td><span class="badge bg-danger">Cancelled</span></td>
-                                </tr>
+
+                                @forelse ($categories as $category)
+                                    <tr>
+                                        <td class="fw-medium">{{ $category->id }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td><span class="badge bg-success">Confirmed</span></td>
+                                    </tr>
+
+                                    @empty
+                                    <tr>
+                                        <td colspan="5" class="border py-6 text-center text-xl text-red-700">No Category Found!</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
