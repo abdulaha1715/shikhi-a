@@ -1,5 +1,5 @@
 @extends('backend.layout.master')
-@section('title','Shikhi | Tag')
+@section('title','Shikhi | Edit Tag')
 @section('page','Tag')
 
 @section('page-content')
