@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'name'              => 'Abdulaha Islam',
             'username'          => 'abdulaha1715',
             'email'             => 'abdulahaislam210917@gmail.com',
+            'phone'             => '01715-246330',
             'password'          => bcrypt('01918786189'),
             'email_verified_at' => now(),
             'avatar'            => 'https://picsum.photos/300',

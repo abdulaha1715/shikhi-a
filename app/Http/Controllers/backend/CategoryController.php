@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +40,21 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'max:255', 'string'],
+        ]);
+
+        try {
+            Category::create([
+                'name'    => $request->name,
+                'slug'    => Str::slug($request->name),
+                'user_id' => Auth::id(),
+            ]);
+
+            return redirect()->route('category.index')->with('success', "Category Created!");
+        } catch (\Throwable $th) {
+            return redirect()->route('category.index')->with('error', $th->getMessage());
+        }
     }
 
     /**
