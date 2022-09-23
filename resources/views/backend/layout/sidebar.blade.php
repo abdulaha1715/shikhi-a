@@ -38,7 +38,7 @@
                     </a>
                 </li> <!-- end Dashboard Menu -->
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" role="button">
+                    <a class="nav-link menu-link" href="{{ route('category.index') }}" role="button">
                         <i class="mdi mdi-view-grid-plus-outline"></i> <span data-key="t-apps">Category</span>
                     </a>
                 </li>

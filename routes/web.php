@@ -24,5 +24,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+    // Category
+    Route::resource('category', CategoryController::class);
 });
 require __DIR__.'/auth.php';
