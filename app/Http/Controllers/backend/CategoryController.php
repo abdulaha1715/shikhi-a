@@ -46,7 +46,7 @@ class CategoryController extends Controller
         try {
             Category::create([
                 'name'    => $request->name,
-                'slug'    => Str::slug($request->name),
+                'slug'    => $request->slug,
                 'user_id' => Auth::id(),
             ]);
 
@@ -75,7 +75,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('backend.category.edit')->with([
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -87,7 +89,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'max:255', 'string'],
+        ]);
+
+        try {
+            $category->update([
+                'name' => $request->name,
+                'slug' => $request->slug,
+            ]);
+
+            return redirect()->route('category.index')->with('success', "Category Updated!");
+        } catch (\Throwable $th) {
+            return redirect()->route('category.index')->with('error', $th->getMessage());
+        }
     }
 
     /**
@@ -98,6 +113,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('category.index')->with('success', "Category Deleted");
     }
 }

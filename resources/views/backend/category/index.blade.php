@@ -59,7 +59,7 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,7 +68,16 @@
                                     <tr>
                                         <td class="fw-medium">{{ $category->id }}</td>
                                         <td>{{ $category->name }}</td>
-                                        <td><span class="badge bg-success">Confirmed</span></td>
+                                        <td>
+                                            <div class="flex justify-center">
+                                                <a href="{{ route('category.edit', $category->id) }}" class="btn-bs-primary mx-1"><i class="ri-edit-box-line align-bottom"></i></a>
+                                                <form action="{{ route('category.destroy', $category->id) }}" method="POST" onsubmit="return confirm('Do you want to delete?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn-bs-danger mx-1"><i class="ri-delete-bin-5-line me-2 align-middle"></i></button>
+                                                </form>
+                                            </div>
+                                        </td>
                                     </tr>
 
                                     @empty
