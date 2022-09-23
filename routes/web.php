@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\backend\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backend\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('backend/dashboard/index');
-})->middleware(['auth'])->name('dashboard');
+// Dashboard Group Routes
+Route::prefix('dashboard')->middleware('auth')->group(function () {
+    // Dashboard
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+});
 require __DIR__.'/auth.php';
