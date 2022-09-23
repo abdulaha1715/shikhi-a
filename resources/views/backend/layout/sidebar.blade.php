@@ -33,15 +33,20 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('dashboard') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                    <a class="nav-link menu-link {{ request()->routeIs('dashboard.*') ? 'active' : ''}}" href="{{ route('dashboard') }}" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                         <i class="mdi mdi-speedometer"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
                 </li> <!-- end Dashboard Menu -->
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('category.index') }}" role="button">
+                    <a class="nav-link menu-link {{ request()->routeIs('category.*') ? 'active' : ''}}" href="{{ route('category.index') }}" role="button">
                         <i class="mdi mdi-view-grid-plus-outline"></i> <span data-key="t-apps">Category</span>
                     </a>
-                </li>
+                </li> <!-- end Category Menu -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->routeIs('tag.*') ? 'active' : ''}}" href="{{ route('tag.index') }}" role="button">
+                        <i class="mdi mdi-view-grid-plus-outline"></i> <span data-key="t-apps">Tag</span>
+                    </a>
+                </li> <!-- end Tag Menu -->
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">

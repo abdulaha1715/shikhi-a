@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\backend\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backend\TagController;
+use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
 
 /*
@@ -26,5 +27,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // Category
     Route::resource('category', CategoryController::class);
+
+    // Tag
+    Route::resource('tag', TagController::class);
 });
 require __DIR__.'/auth.php';
