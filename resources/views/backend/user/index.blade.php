@@ -45,7 +45,7 @@
                                         <td class="text-center">
                                             <a href="#"><i
                                                     class="ri-edit-line fs-4 text-primary"></i></a>
-                                            <a href="#"><i
+                                            <a href="{{ route('user.show', $user) }}"><i
                                                     class="ri-eye-line fs-4 text-success"></i></a>
                                             <a href="#"><i
                                                     class="ri-delete-bin-5-line fs-4 text-danger"></i></a>
