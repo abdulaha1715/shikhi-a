@@ -22,7 +22,6 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Phone</th>
-                                    <th scope="col">Status</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -43,7 +42,6 @@
                                         <td>{{ $user->name }} <br> {{ $user->username }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->status }}</td>
                                         <td class="text-center">
                                             <a href="#"><i
                                                     class="ri-edit-line fs-4 text-primary"></i></a>
