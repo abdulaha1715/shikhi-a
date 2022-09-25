@@ -43,7 +43,7 @@
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td class="text-center">
-                                            <a href="#"><i
+                                            <a href="{{ route('user.edit', $user) }}"><i
                                                     class="ri-edit-line fs-4 text-primary"></i></a>
                                             <a href="{{ route('user.show', $user) }}"><i
                                                     class="ri-eye-line fs-4 text-success"></i></a>

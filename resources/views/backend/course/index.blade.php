@@ -62,11 +62,13 @@
                                     </tr>
                                 @endforelse
 
-                                {{ $courses->links() }}
                             </tbody>
                         </table>
                     </div>
                 </div><!-- end card-body -->
+                <div class="pagination ">
+                    {{ $courses->links() }}
+                </div>
             </div><!-- end card -->
         </div>
         <!-- end col -->

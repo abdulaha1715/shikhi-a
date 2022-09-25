@@ -32,3 +32,15 @@ div#status_message p {
     border: none;
     background: transparent;
 }
+
+.hidden {
+    display: none;
+}
+
+.pagination {
+    margin: 30px 20px 35px;
+}
+
+label {
+    cursor: pointer;
+}

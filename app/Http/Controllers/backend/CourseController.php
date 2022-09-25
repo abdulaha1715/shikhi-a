@@ -20,7 +20,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::orderBy('id','ASC')->paginate(20);
+        $courses = Course::where('teacher_id', Auth::user()->id)->orderBy('id','ASC')->paginate(20);
         return view('backend.course.index')->with('courses', $courses);
     }
 
