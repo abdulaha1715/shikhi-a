@@ -45,12 +45,13 @@
                                         <td>{{ $course->status }}</td>
                                         <td>{{ $course->category_id }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('course.edit', $course) }}"><i
-                                                    class="ri-edit-line fs-4 text-primary"></i></a>
-                                            <a href=""><i
-                                                    class="ri-eye-line fs-4 text-success"></i></a>
-                                            <a href="#"><i
-                                                    class="ri-delete-bin-5-line fs-4 text-danger"></i></a>
+                                            <a href="{{ route('course.edit', $course) }}"><i class="ri-edit-line fs-4 text-primary"></i></a>
+                                            <a href=""><i class="ri-eye-line fs-4 text-success"></i></a>
+                                            <form action="{{ route('course.destroy', $course->id) }}" method="POST" class="file-delete" onsubmit="return confirm('Do you want to delete?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class=""><i class="ri-delete-bin-5-line fs-4 text-danger"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty
@@ -61,6 +62,7 @@
                                     </tr>
                                 @endforelse
 
+                                {{ $courses->links() }}
                             </tbody>
                         </table>
                     </div>

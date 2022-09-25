@@ -60,7 +60,7 @@
             <!-- end card -->
 
             <div class="text-end mb-3">
-                <button type="submit" class="btn btn-success w-sm">Create</button>
+                <button type="submit" class="btn btn-success w-sm">Update</button>
             </div>
         </div>
         <!-- end col -->

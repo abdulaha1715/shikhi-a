@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -67,7 +68,7 @@ class CourseController extends Controller
                 'audience'     => $request->audience,
                 'status'       => $request->status,
                 'category_id'  => $request->category_id,
-                'teacher_id'      => Auth::user()->id,
+                'teacher_id'   => Auth::user()->id,
             ]);
 
             return redirect()->route('course.index')->with('success', "Course Added Successfully!");
@@ -110,7 +111,38 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $request->validate([
+            'name'        => ['required', 'string', 'max:255'],
+            'status'      => ['required', 'not_in:none'],
+            'category_id' => ['required', 'not_in:none'],
+        ]);
+
+        try {
+            $thumbnail = $course->thumbnail;
+
+            if ( !empty($request->file('thumbnail')) ) {
+                Storage::delete('public/uploads/'.$thumbnail);
+
+                $thumbnail = time() . '-' . $request->file('thumbnail')->getClientOriginalName();
+                $request->file('thumbnail')->storeAs('public/uploads', $thumbnail);
+            }
+
+            $course->update([
+                'name'         => $request->name,
+                'slug'         => Str::slug($request->name),
+                'description'  => $request->description,
+                'thumbnail'    => $thumbnail,
+                'requirements' => $request->requirements,
+                'audience'     => $request->audience,
+                'status'       => $request->status,
+                'category_id'  => $request->category_id,
+                'teacher_id'   => Auth::user()->id,
+            ]);
+
+            return redirect()->route('course.index')->with('success', "Course Updated Successfully!");
+        } catch (\Throwable $th) {
+            return redirect()->route('course.index')->with('error', $th->getMessage());
+        }
     }
 
     /**
@@ -121,6 +153,8 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        Storage::delete('public/uploads/'.$course->thumbnail);
+        $course->delete();
+        return redirect()->route('course.index')->with('success', "Course Deleted");
     }
 }

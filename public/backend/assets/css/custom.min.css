@@ -22,3 +22,13 @@ div#status_message p {
     opacity: 0;
     visibility: hidden;
 }
+
+.file-delete {
+    display: inline-block;
+}
+
+.file-delete button {
+    display: inline-block;
+    border: none;
+    background: transparent;
+}
