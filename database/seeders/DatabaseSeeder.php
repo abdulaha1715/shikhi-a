@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Course;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,5 +33,9 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'avatar'            => 'https://picsum.photos/300',
         ]);
+
+        Category::factory(10)->create();
+
+        Course::factory(30)->create();
     }
 }

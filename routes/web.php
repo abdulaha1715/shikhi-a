@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\TagController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\UserController;
 
@@ -34,5 +35,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // User
     Route::resource('user', UserController::class);
+
+    // Course
+    Route::resource('course', CourseController::class);
 });
 require __DIR__.'/auth.php';
