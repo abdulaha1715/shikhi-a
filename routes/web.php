@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\TagController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // Tag
     Route::resource('tag', TagController::class);
+
+    // User
+    Route::resource('user', UserController::class);
 });
 require __DIR__.'/auth.php';

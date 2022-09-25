@@ -49,8 +49,14 @@
                 </li> <!-- end Tag Menu -->
 
                 <li class="nav-item">
+                    <a class="nav-link menu-link {{ request()->routeIs('user.*') ? 'active' : ''}}" href="{{ route('user.index') }}" role="button">
+                        <i class="mdi mdi-view-grid-plus-outline"></i> <span data-key="t-apps">User</span>
+                    </a>
+                </li> <!-- end User Menu -->
+
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="mdi mdi-view-carousel-outline"></i> <span data-key="t-layouts">Layouts</span>
+                        <i class="mdi mdi-view-carousel-outline"></i> <span data-key="t-layouts">Settings</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
