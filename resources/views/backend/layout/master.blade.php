@@ -2,6 +2,8 @@
 
     @include('backend.layout.sidebar')
 
+    @include('backend.layout.message')
+
     <!-- Vertical Overlay-->
     <div class="vertical-overlay"></div>
 

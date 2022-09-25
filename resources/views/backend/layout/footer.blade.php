@@ -634,6 +634,7 @@
 <script src="{{ asset('./backend/assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
 <script src="{{ asset('./backend/assets/js/plugins.js') }}"></script>
 
+@yield('message-script')
 <!-- App js -->
 <script src="{{ asset('./backend/assets/js/app.js') }}"></script>
 </body>

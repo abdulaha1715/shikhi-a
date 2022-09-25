@@ -45,7 +45,7 @@
                                         <td>{{ $course->status }}</td>
                                         <td>{{ $course->category_id }}</td>
                                         <td class="text-center">
-                                            <a href="#"><i
+                                            <a href="{{ route('course.edit', $course) }}"><i
                                                     class="ri-edit-line fs-4 text-primary"></i></a>
                                             <a href=""><i
                                                     class="ri-eye-line fs-4 text-success"></i></a>
