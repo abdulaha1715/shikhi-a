@@ -11,6 +11,14 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('./backend/assets/images/favicon.ico') }}">
 
+    @if ( request()->routeIs('*edit*') )
+    <!-- Filepond css -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+
+    <!-- Add plugin styles -->
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    @endif
+
     <!-- Layout config Js -->
     <script src="{{ asset('./backend/assets/js/layout.js') }}"></script>
     <!-- Bootstrap Css -->
@@ -21,7 +29,8 @@
     <link href="{{ asset('./backend/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{ asset('./backend/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
-
+    {{-- jQuery --}}
+    <script src="{{ asset('./backend/assets/js/plugins.js') }}"></script>
 </head>
 
 <body>
@@ -169,7 +178,7 @@
 
                         <div class="dropdown ms-1 topbar-head-dropdown header-item">
                             <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle shadow-none" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img id="header-lang-img" src="{{ asset('./backend/assets/images/flags/us.svg') }}" alt="Header Language" height="20" class="rounded">
+                                <img id="header-lang-img" src="" alt="Header Language" height="20" class="rounded">
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
 

@@ -77,7 +77,9 @@ class UserController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name'     => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'min:4', 'unique:users,username,'. $user->id],
+            'phone'    => ['required', 'string', 'max:255', 'unique:users,phone,'. $user->id],
         ]);
 
         try {

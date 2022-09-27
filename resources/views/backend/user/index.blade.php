@@ -31,8 +31,8 @@
                                         <td class="fw-medium">{{ $user->id }}</td>
                                         <td>
                                             @php
-                                                if ( !empty($user->avatar)) {
-                                                    $user_image = $user->avatar;
+                                                if ( !empty($user->thumbnail)) {
+                                                    $user_image = asset('storage/uploads/'.$user->thumbnail);
                                                 } else {
                                                     $user_image = asset('./backend/assets/images/users/user-dummy-img.jpg');
                                                 }
